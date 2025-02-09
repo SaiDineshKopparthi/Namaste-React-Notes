@@ -3,9 +3,29 @@ const heading = React.createElement(
   { id: "heading" },
   "Hello World From React!"
 );
-//console.log(heading);
+{
+  /* <div id="parent">
+    <div id="child">
+      <h1>Creating nested HTML elements using React</h1>
+      <h2>Second element</h2>
+    </div>
+    <div id="child2">
+      <h1>Creating nested HTML elements using React</h1>
+      <h2>Second element</h2>
+    </div>
+  </div>; */
+}
+
+const parent = React.createElement("div", { id: "parent" }, [
+  React.createElement("div", { id: "child" }, [
+    React.createElement("h1", {}, "Creating nested HTML elements using React"),
+    React.createElement("h2", {}, "Second element"),
+  ]),
+  React.createElement("div", { id: "child2" }, [
+    React.createElement("h1", {}, "Creating nested HTML elements using React"),
+    React.createElement("h2", {}, "Second element"),
+  ]),
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
-
-
+root.render(parent);
