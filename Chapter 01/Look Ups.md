@@ -63,3 +63,4 @@ Imagine you update your homepage banner. Instead of every user fetching it from 
 - A clear cut explanation [here](https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json)
 
 ## 2. What is the difference between `package.json` and `package-lock.json`?
+## 3. What is consistent hashing?

@@ -1,3 +1,7 @@
+import React from "react";
+//import ReactDOM from "react-dom"; Not going to work after React 18
+import { createRoot } from 'react-dom/client';
+
 const heading = React.createElement(
   "h1",
   { id: "heading" },
@@ -27,5 +31,6 @@ const parent = React.createElement("div", { id: "parent" }, [
   ]),
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+//const root = ReactDOM.createRoot(document.getElementById("root")); //Old way of rendering - before react 18
+const root = createRoot(document.getElementById('root'));
 root.render(parent);
