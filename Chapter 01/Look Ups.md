@@ -1,6 +1,6 @@
 # 01 Inception
 
-### 1. What is CDN?
+## 1. What is CDN?
 
 A CDN **(Content Delivery Network)** is a system of distributed servers that work together to deliver web content (such as images, videos, scripts and HTML pages) to users more quickly and reliably. It reduces latency by caching content at multiple geographically dispersed data centers, ensuring users can access data from a location closer to them rather than from a single, centralized server.
 
@@ -53,3 +53,13 @@ Netflix uses a CDN to store copies of its popular shows and movies at multiple l
 #### Example:
 
 Imagine you update your homepage banner. Instead of every user fetching it from your main server, a cache purge updates it across all edge locations so visitors see the new banner instantly! 2. What is the crossorigin attribute?
+
+## 2. What is the `crossorigin` attribute in HTML tags?
+
+# Igniting out app
+
+## 1. What's the difference between tilde(`~`) and caret(`^`) in `package.json`?
+
+- A clear cut explanation [here](https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json)
+
+## 2. What is the difference between `package.json` and `package-lock.json`?

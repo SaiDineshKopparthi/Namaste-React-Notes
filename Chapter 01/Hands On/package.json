@@ -1,0 +1,14 @@
+{
+  "name": "hands-on",
+  "version": "1.0.0",
+  "description": "A package created for practising the React course",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Dinesh",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
