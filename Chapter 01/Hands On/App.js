@@ -9,6 +9,8 @@ const heading = React.createElement(
 
 const jsxHeading = <h1 id="heading">Hola, Buenos Dias!</h1>;
 
+const message = "esta bein?";
+
 const HeadingComponent = () => {
   return <h1 id="heading">Hola, Buenos Dias!</h1>;
 };
@@ -16,8 +18,8 @@ const HeadingComponent = () => {
 const DivComponent = () => {
   return (
     <div id="nested-div">
-      <HeadingComponent />
-      <p>Como estas?</p>
+      {HeadingComponent()}
+      <p>Como estas? {message}</p>
     </div>
   );
 };
