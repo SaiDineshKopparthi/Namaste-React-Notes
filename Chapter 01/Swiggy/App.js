@@ -30,38 +30,33 @@ const resCardBackground = {
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+  const { cloudinaryImageId, name, cuisines, avgRating, sla } = resData;
 
   return (
     <div className="res-card" style={resCardBackground}>
       <img
-        src="https://yummyindiankitchen.com/wp-content/uploads/2021/05/chicken-dum-biryani-hyderabadi-style.jpg"
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          cloudinaryImageId
+        }
         alt=""
       />
-      <h3>{resData.resName}</h3>
-      <h4> {resData.cuisine}</h4>
-      <h4>4.9</h4>
-      <h4>15 min</h4>
+      <h3>{name}</h3>
+      <h4> {cuisines.join(", ")}</h4>
+      <h4>⭐ {avgRating}</h4>
+      <h4>Delivery Time: {sla.deliveryTime} min</h4>
     </div>
   );
 };
 
-const resData = {
-  resName: "Kasif Dum Biryani",
-  cuisine: "Andhra",
-};
-
 const Body = () => {
-  console.log(bhimavaramResData.restaurants[0]);
-
   return (
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurantCard resData={resData} />
-        {/* <RestaurantCard resName="Aanand Adiyar Bhavan" cuisine="South Indian" />
-        <RestaurantCard resName="Dhaba" cuisine="Punjabi" />
-        <RestaurantCard resName="Mc Donald's" cuisine="American" />
-        <RestaurantCard resName="Dominos" cuisine="Italian" /> */}
+        {bhimavaramResData.restaurants.map((restaurant) => {
+          return <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />;
+        })}
       </div>
     </div>
   );
