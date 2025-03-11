@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import Header from "./Components/Header";
+import Header from "./Components/Header.js";
 import Body from "./components/Body";
 
-import bhimavaramResData from "./bhimavaramRestaurants.json";
+import bhimavaramResData from "./utils/bhimavaramRestaurants.json";
 
 const AppLayout = () => {
   return (

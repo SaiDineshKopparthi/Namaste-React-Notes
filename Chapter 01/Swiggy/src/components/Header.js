@@ -1,10 +1,12 @@
+import { LOGO_URL } from "../utils/constant";
+
 export default Header = () => {
   return (
     <div className="header">
       <div>
         <img
           className="logo"
-          src="https://marketplace.canva.com/EAGXsRURT9o/1/0/1200w/canva-yellow-and-brown-kitchen-food-logo-DRT6KFcL0ts.png"
+          src={LOGO_URL}
           alt="The logo of the food delivery app"
         />
       </div>
