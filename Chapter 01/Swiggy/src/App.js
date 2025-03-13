@@ -7,6 +7,7 @@ import Body from "./components/Body";
 import bhimavaramResData from "./utils/bhimavaramRestaurants.json";
 
 const AppLayout = () => {
+  console.log(<Header />);
   return (
     <div id="app">
       <Header />
