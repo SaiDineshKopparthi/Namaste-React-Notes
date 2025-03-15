@@ -1,5 +1,7 @@
-import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
+
+import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 export default Body = () => {
   const [restaurantData, setRestaurantData] = useState([]);
@@ -15,13 +17,18 @@ export default Body = () => {
       if (!response.ok) throw new Error("API error");
       const json = await response.json();
 
-      setRestaurantData(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setRestaurantData(
+        json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
     } catch (error) {
       console.error("Trouble fetching the restaurants data.");
     }
   };
 
-  return (
+  return restaurantData.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
