@@ -5,12 +5,15 @@ import Shimmer from "./Shimmer";
 
 export default Body = () => {
   const [restaurantData, setRestaurantData] = useState([]);
+
   const [filteredRestaurantData, setFilteredRestaurantData] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  console.log(restaurantData);
 
   const fetchData = async () => {
     try {
@@ -28,7 +31,7 @@ export default Body = () => {
           ?.restaurants
       );
     } catch (error) {
-      console.error("Trouble fetching the restaurants data.");
+      console.error(error + " Trouble fetching the restaurants data.");
     }
   };
 
