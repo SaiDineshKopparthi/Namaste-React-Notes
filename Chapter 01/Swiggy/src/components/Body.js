@@ -5,6 +5,8 @@ import Shimmer from "./Shimmer";
 
 export default Body = () => {
   const [restaurantData, setRestaurantData] = useState([]);
+  const [filteredRestaurantData, setFilteredRestaurantData] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -21,6 +23,10 @@ export default Body = () => {
         json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
+      setFilteredRestaurantData(
+        json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
     } catch (error) {
       console.error("Trouble fetching the restaurants data.");
     }
@@ -30,21 +36,44 @@ export default Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredRestaurantData = restaurantData.filter(
-              (restaurant) => restaurant.info.avgRating > 4.0
-            );
-            setRestaurantData(filteredRestaurantData);
-          }}
-        >
-          Top Rated
-        </button>
+      <div className="options">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              const searchedRestaurants = restaurantData.filter((restaurant) =>
+                restaurant.info.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurantData(searchedRestaurants);
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <div className="filter">
+          <button
+            className="filter-btn"
+            onClick={() => {
+              const filteredRestaurantData = restaurantData.filter(
+                (restaurant) => restaurant.info.avgRating > 4.0
+              );
+              setFilteredRestaurantData(filteredRestaurantData);
+            }}
+          >
+            Top Rated
+          </button>
+        </div>
       </div>
+
       <div className="res-container">
-        {restaurantData.map((restaurant) => {
+        {filteredRestaurantData.map((restaurant) => {
           return (
             <RestaurantCard
               key={restaurant.info.id}
