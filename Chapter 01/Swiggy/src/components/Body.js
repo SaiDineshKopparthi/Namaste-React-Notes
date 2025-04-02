@@ -21,11 +21,11 @@ export default Body = () => {
       const json = await response.json();
 
       setRestaurantData(
-        json.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+        json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
       setFilteredRestaurantData(
-        json.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+        json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
     } catch (error) {
