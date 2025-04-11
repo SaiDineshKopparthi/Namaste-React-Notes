@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
@@ -15,7 +16,9 @@ export default Body = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/swiggy");
+      const response = await fetch(
+        "http://localhost:5000/api/swiggy/restaurant"
+      );
 
       if (!response.ok) throw new Error("API error");
       const json = await response.json();
@@ -76,10 +79,12 @@ export default Body = () => {
       <div className="res-container">
         {filteredRestaurantData.map((restaurant) => {
           return (
-            <RestaurantCard
-              key={restaurant.info.id}
-              resData={restaurant.info}
-            />
+            <Link to={`/restaurant/${restaurant.info.id}`}>
+              <RestaurantCard
+                key={restaurant.info.id}
+                resData={restaurant.info}
+              />
+            </Link>
           );
         })}
       </div>
